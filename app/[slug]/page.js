@@ -93,7 +93,7 @@ export default async function PostPage({ params }) {
           </p>
           <hr />
         <p>
-          <Link href={discussUrl}>Discuss on GitHub Issues</Link>
+          <Link href={discussUrl}>Discuss on 𝕏</Link>
           &nbsp;&nbsp;&middot;&nbsp;&nbsp;
           <Link href={editUrl}>Edit on GitHub</Link>
         </p>
