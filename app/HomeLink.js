@@ -28,7 +28,7 @@ export default function HomeLink() {
           transition: "--myColor1 0.2s ease-out, --myColor2 0.2s ease-in-out",
         }}
       >
-        overreacted
+        Overreacted (Rasel Shikdar's Blog)
       </span>
     </Link>
   );
