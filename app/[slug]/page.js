@@ -25,9 +25,9 @@ export default async function PostPage({ params }) {
     }
   }
   const { content, data } = matter(file);
-  const discussUrl = `https://x.com/search?q=${encodeURIComponent(
-    `https://blog.rasel.us.kg/${params.slug}/`,
-  )}`;
+  const discussUrl = `https://github.com/raselshikdar/blog/discussions/main/public/${encodeURIComponent(
+    params.slug,
+  )}/index.md`;
   const editUrl = `https://github.com/raselshikdar/blog/edit/main/public/${encodeURIComponent(
     params.slug,
   )}/index.md`;
@@ -73,26 +73,6 @@ export default async function PostPage({ params }) {
             },
           }}
         />
-        <hr />
-          <p>
-          """
-    {{ addcomments }}
-
-"""
-function hfun_addcomments()
-    html_str = """
-        <script src="https://utteranc.es/client.js"
-        repo="raselshikdar/blog"
-        issue-term="pathname"
-        label="Comment"
-        theme="preferred-color-scheme"
-        crossorigin="anonymous"
-        async>
-</script>
-    """
-    return html_str
-end
-          </p>
           <hr />
         <p>
           <Link href={discussUrl}>Discuss on 𝕏</Link>
