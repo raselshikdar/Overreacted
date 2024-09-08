@@ -75,21 +75,23 @@ export default async function PostPage({ params }) {
         />
         <hr />
           <p>
-          <script src="https://giscus.app/client.js"
-        data-repo="raselshikdar/blog"
-        data-repo-id="R_kgDOMuevqw"
-        data-category="General"
-        data-category-id="DIC_kwDOMuevq84CiS_S"
-        data-mapping="pathname"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
+          """
+    {{ addcomments }}
+
+"""
+function hfun_addcomments()
+    html_str = """
+        <script src="https://utteranc.es/client.js"
+        repo="raselshikdar/blog"
+        issue-term="pathname"
+        label="Comment"
+        theme="preferred-color-scheme"
         crossorigin="anonymous"
         async>
 </script>
+    """
+    return html_str
+end
           </p>
           <hr />
         <p>
