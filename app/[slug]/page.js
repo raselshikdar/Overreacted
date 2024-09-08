@@ -26,9 +26,9 @@ export default async function PostPage({ params }) {
   }
   const { content, data } = matter(file);
   const discussUrl = `https://x.com/search?q=${encodeURIComponent(
-    `https://overreacted.io/${params.slug}/`,
+    `https://blog.rasel.us.kg/${params.slug}/`,
   )}`;
-  const editUrl = `https://github.com/gaearon/overreacted.io/edit/main/public/${encodeURIComponent(
+  const editUrl = `https://github.com/raselshikdar/blog/edit/main/public/${encodeURIComponent(
     params.slug,
   )}/index.md`;
   return (
