@@ -1,12 +1,12 @@
 import { Feed } from "feed";
 
 export function generateFeed(posts, metadata) {
-  const site_url = "https://overreacted.io/";
+  const site_url = "https://blog.rasel.us.kg/";
 
   const feedOptions = {
     author: {
-      name: "Dan Abramov",
-      email: "dan.abramov@gmail.com",
+      name: "Rasel Shikdar",
+      email: "info@rasel.us.kg",
       link: site_url,
     },
     description: metadata.description,
@@ -14,7 +14,7 @@ export function generateFeed(posts, metadata) {
     feedLinks: { atom: `${site_url}atom.xml`, rss: `${site_url}rss.xml` },
     generator: "Feed for Node.js",
     id: site_url,
-    image: "https://github.com/gaearon.png",
+    image: "https://github.com/raselshikdar.png",
     link: site_url,
     title: metadata.title,
   };
