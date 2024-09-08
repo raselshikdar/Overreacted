@@ -5,10 +5,10 @@ module.exports = {
 
 const nextConfig = {
 	env: {
-		COMMENTS_REPO: 'ayoubkhial/nextjs-giscus-blog',
-		COMMENTS_REPO_ID: 'R_kgDOJlwoBA',
-		COMMENTS_CATEGORY: 'Announcements',
-		COMMENT_CATEGORY_ID: 'DIC_kwDOJlwoBM4CWpCu',
+		COMMENTS_REPO: 'raselshikdar/blog',
+		COMMENTS_REPO_ID: 'R_kgDOMuevqw',
+		COMMENTS_CATEGORY: 'General',
+		COMMENT_CATEGORY_ID: 'DIC_kwDOMuevq84CiS_S',
 	},
 };
  
