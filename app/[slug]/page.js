@@ -7,6 +7,7 @@ import remarkSmartpants from "remark-smartypants";
 import rehypePrettyCode from "rehype-pretty-code";
 import { remarkMdxEvalCodeBlock } from "./mdx.js";
 import overnight from "overnight/themes/Overnight-Slumber.json";
+import Comments from "../Comments"; // Import the Comments component
 import "./markdown.css";
 
 overnight.colors["editor.background"] = "var(--code-bg)";
@@ -31,6 +32,7 @@ export default async function PostPage({ params }) {
   const editUrl = `https://github.com/raselshikdar/blog/edit/main/public/${encodeURIComponent(
     params.slug,
   )}/index.md`;
+
   return (
     <article>
       <h1
@@ -73,30 +75,15 @@ export default async function PostPage({ params }) {
             },
           }}
         />
-          <hr />
-          <p>
-          <script src="https://giscus.app/client.js"
-        data-repo="raselshikdar/blog"
-        data-repo-id="R_kgDOMuevqw"
-        data-category="General"
-        data-category-id="DIC_kwDOMuevq84CiS_S"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-          </p>
-          <hr />
+        <hr />
         <p>
           <Link href={discussUrl}>Discuss on 𝕏</Link>
           &nbsp;&nbsp;&middot;&nbsp;&nbsp;
           <Link href={editUrl}>Edit on GitHub</Link>
         </p>
+        <hr />
+        {/* Comments Section */}
+        <Comments />
       </div>
     </article>
   );
