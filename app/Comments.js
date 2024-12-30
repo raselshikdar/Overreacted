@@ -38,7 +38,6 @@ const Comments = () => {
 
   return (
     <div id="post-comments" style={{ marginTop: "2rem" }}>
-      <h2>Comments</h2>
     </div>
   );
 };
