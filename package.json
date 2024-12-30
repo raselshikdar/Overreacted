@@ -28,7 +28,7 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "giscus/react": "^3.0.0",
+    "@giscus/react": "^3.0.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
