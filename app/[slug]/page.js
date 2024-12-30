@@ -83,7 +83,6 @@ export default async function PostPage({ params }) {
           &nbsp;&nbsp;&middot;&nbsp;&nbsp;
           <Link href={editUrl}>Edit on GitHub</Link>
         </p>
-            <hr />
       </div>
     </article>
   );
