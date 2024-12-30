@@ -1,17 +1,18 @@
 'use client';
- 
+
 import { useEffect } from 'react';
- 
-const Comments = ({ repo, repoId, category, categoryId }) => {
+
+const Comments = () => {
 	useEffect(() => {
 		const script = document.createElement('script');
 		const commentsDiv = document.getElementById('post-comments');
+
 		script.async = true;
-		script.setAttribute('src', 'https://giscus.app/client.js');
-		script.setAttribute('data-repo', repo);
-		script.setAttribute('data-repo-id', repoId);
-		script.setAttribute('data-category', category);
-		script.setAttribute('data-category-id', categoryId);
+		script.src = 'https://giscus.app/client.js';
+		script.setAttribute('data-repo', 'raselshikdar/Overreacted');
+		script.setAttribute('data-repo-id', 'R_kgDOMuevqw');
+		script.setAttribute('data-category', 'General');
+		script.setAttribute('data-category-id', 'DIC_kwDOMuevq84CiS_S');
 		script.setAttribute('data-mapping', 'pathname');
 		script.setAttribute('data-strict', '0');
 		script.setAttribute('data-reactions-enabled', '1');
@@ -21,18 +22,26 @@ const Comments = ({ repo, repoId, category, categoryId }) => {
 		script.setAttribute('data-lang', 'en');
 		script.setAttribute('data-loading', 'lazy');
 		script.setAttribute('crossorigin', 'anonymous');
-		try {
+
+		if (commentsDiv) {
 			commentsDiv.appendChild(script);
-		} catch (error) {
-			console.error('Error while rendering giscus widget.', error);
+		} else {
+			console.error('Failed to find comments container.');
 		}
+
+		// Cleanup on component unmount
+		return () => {
+			if (commentsDiv) {
+				commentsDiv.innerHTML = '';
+			}
+		};
 	}, []);
- 
+
 	return (
-		<div id="post-comments">
+		<div id="post-comments" style={{ marginTop: '2rem' }}>
 			<h2>Comments</h2>
 		</div>
 	);
 };
- 
+
 export default Comments;
