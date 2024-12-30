@@ -5,7 +5,7 @@ module.exports = {
 
 const nextConfig = {
 	env: {
-		COMMENTS_REPO: 'raselshikdar/blog',
+		COMMENTS_REPO: 'raselshikdar/Overreacted',
 		COMMENTS_REPO_ID: 'R_kgDOMuevqw',
 		COMMENTS_CATEGORY: 'General',
 		COMMENT_CATEGORY_ID: 'DIC_kwDOMuevq84CiS_S',
