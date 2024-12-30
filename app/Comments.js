@@ -12,6 +12,7 @@ const Comments = ({ repo, repoId, category, categoryId }) => {
       const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
 
+      // Set the theme based on saved preferences or system preference
       if (savedTheme === 'dark' || (savedTheme === 'auto' && userPrefersDark)) {
         return 'dark';
       }
@@ -21,8 +22,9 @@ const Comments = ({ repo, repoId, category, categoryId }) => {
       return 'light';
     };
 
-    // Update theme state
-    setTheme(detectTheme());
+    // Set initial theme state based on detection
+    const initialTheme = detectTheme();
+    setTheme(initialTheme);
 
     // Listener for theme changes (if applicable)
     const themeChangeHandler = () => {
@@ -30,6 +32,7 @@ const Comments = ({ repo, repoId, category, categoryId }) => {
       setTheme(newTheme);
     };
 
+    // Detect system preference changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeHandler);
 
     return () => {
