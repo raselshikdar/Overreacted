@@ -7,7 +7,7 @@ import remarkSmartpants from "remark-smartypants";
 import rehypePrettyCode from "rehype-pretty-code";
 import { remarkMdxEvalCodeBlock } from "./mdx.js";
 import overnight from "overnight/themes/Overnight-Slumber.json";
-import Comments from "../Comments"; // Import the Comments component
+import Comments from "../Comments"; // Import the updated Comments component
 import "./markdown.css";
 
 overnight.colors["editor.background"] = "var(--code-bg)";
@@ -15,6 +15,7 @@ overnight.colors["editor.background"] = "var(--code-bg)";
 export default async function PostPage({ params }) {
   const filename = "./public/" + params.slug + "/index.md";
   const file = await readFile(filename, "utf8");
+
   let postComponents = {};
   try {
     postComponents = await import(
@@ -25,12 +26,13 @@ export default async function PostPage({ params }) {
       throw e;
     }
   }
+
   const { content, data } = matter(file);
   const discussUrl = `https://x.com/search?q=${encodeURIComponent(
-    `https://blog.rasel.us.kg/${params.slug}/`,
+    `https://blog.rasel.us.kg/${params.slug}/`
   )}`;
   const editUrl = `https://github.com/raselshikdar/blog/edit/main/public/${encodeURIComponent(
-    params.slug,
+    params.slug
   )}/index.md`;
 
   return (
@@ -76,7 +78,12 @@ export default async function PostPage({ params }) {
           }}
         />
         {/* Comments Section */}
-        <Comments />
+        <Comments
+          repo="raselshikdar/Overreacted"
+          repoId="R_kgDOMuevqw"
+          category="General"
+          categoryId="DIC_kwDOMuevq84CiS_S"
+        />
         <hr />
         <p>
           <Link href={discussUrl}>Discuss on 𝕏</Link>
