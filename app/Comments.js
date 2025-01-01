@@ -4,39 +4,32 @@ import { useEffect, useState } from 'react';
 import Giscus from '@giscus/react';
 
 const Comments = ({ repo, repoId, category, categoryId }) => {
-  const [theme, setTheme] = useState('light'); // Default theme
+  const [theme, setTheme] = useState('preferred_color_scheme'); // Default to auto mode
 
   useEffect(() => {
-    // Function to detect the current theme dynamically
     const detectTheme = () => {
       const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
 
-      // Set the theme based on saved preferences or system preference
-      if (savedTheme === 'dark' || (savedTheme === 'auto' && userPrefersDark)) {
-        return 'dark';
-      }
-      if (savedTheme === 'auto') {
-        return 'preferred_color_scheme';
-      }
-      return 'light';
+      // Determine theme based on saved preference or system preference
+      if (savedTheme === 'dark') return 'dark';
+      if (savedTheme === 'light') return 'light';
+      return userPrefersDark ? 'dark' : 'light';
     };
 
-    // Set initial theme state based on detection
-    const initialTheme = detectTheme();
-    setTheme(initialTheme);
+    // Set the detected theme
+    setTheme(detectTheme());
 
-    // Listener for theme changes (if applicable)
     const themeChangeHandler = () => {
-      const newTheme = detectTheme();
-      setTheme(newTheme);
+      setTheme(detectTheme());
     };
 
-    // Detect system preference changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeHandler);
+    // Listen for system theme changes
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addEventListener('change', themeChangeHandler);
 
     return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', themeChangeHandler);
+      darkModeMediaQuery.removeEventListener('change', themeChangeHandler);
     };
   }, []);
 
