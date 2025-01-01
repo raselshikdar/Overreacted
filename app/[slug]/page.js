@@ -84,6 +84,7 @@ export default async function PostPage({ params }) {
           category="General"
           categoryId="DIC_kwDOMuevq84CiS_S"
         />
+            <br />
         <hr />
         <p>
           <Link href={discussUrl}>Discuss on 𝕏</Link>
